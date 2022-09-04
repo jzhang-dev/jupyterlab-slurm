@@ -110,3 +110,10 @@ dmypy.json
 
 # OSX files
 .DS_Store
+
+# https://github.com/jzhang-dev/jupyterlab-slurm
+venv3.9
+*.log
+*.out
+munge.key
+.env
