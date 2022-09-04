@@ -19,7 +19,7 @@ RUN apt-get update \
         nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g configurable-http-proxy && pip3 install jupyterlab==2.1.2 
+RUN npm install -g configurable-http-proxy && pip3 install jupyterlab==3.4.5 
 
 COPY slurm.conf /etc/slurm-llnl/
 COPY cgroup.conf /etc/slurm-llnl/
@@ -33,7 +33,5 @@ EXPOSE 8888
 
 ENV USER gitpod
 ENV SHELL bash
-
-RUN pip3 install jupyterlab_slurm
 
 ENTRYPOINT ["/etc/slurm-llnl/docker-entrypoint.sh"]

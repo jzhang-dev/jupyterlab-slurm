@@ -1,7 +1,6 @@
-
 image:
   file: .gitpod.Dockerfile
-  
+
 tasks:
   - command: ./install.sh
 
@@ -9,3 +8,6 @@ ports:
   - port: 8888
     visibility: private
     onOpen: open-browser
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
