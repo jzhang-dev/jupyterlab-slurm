@@ -1,0 +1,64 @@
+services:
+  baseimage:
+    build: ./baseimage
+    image: wilj.net/slurm/baseimage
+    user: "${UID}:${GID}"
+  slurmjupyter:
+    build: ./jupyter
+    hostname: slurmjupyter
+    user: "${UID}:${GID}"
+    volumes:
+      - shared-vol:/home/gitpod
+      - ./:/tmp/src
+    ports:
+      - 8888:8888
+  slurmmaster:
+    build: ./master
+    hostname: slurmmaster
+    user: "${UID}:${GID}"
+    volumes:
+      - shared-vol:/home/gitpod
+    ports:
+      - 6817:6817
+      - 6818:6818
+      - 6819:6819
+    environment:
+      - SLURMD_OPTIONS=$SLURMD_OPTIONS
+      - SLURMCTLD_OPTIONS=$SLURMCTLD_OPTIONS
+  slurmnode1:
+    build: ./node
+    hostname: slurmnode1
+    user: "${UID}:${GID}"
+    volumes:
+      - shared-vol:/home/gitpod
+    links:
+      - slurmmaster
+    environment:
+      - SLURMD_OPTIONS=$SLURMD_OPTIONS
+      - SLURMCTLD_OPTIONS=$SLURMCTLD_OPTIONS
+  slurmnode2:
+    build: ./node
+    hostname: slurmnode2
+    user: "${UID}:${GID}"
+    volumes:
+      - shared-vol:/home/gitpod
+    links:
+      - slurmmaster
+    environment:
+      - SLURMD_OPTIONS=$SLURMD_OPTIONS
+      - SLURMCTLD_OPTIONS=$SLURMCTLD_OPTIONS
+  slurmnode3:
+    build: ./node
+    hostname: slurmnode3
+    user: "${UID}:${GID}"
+    volumes:
+      - shared-vol:/home/gitpod
+    links:
+      - slurmmaster
+    environment:
+      - SLURMD_OPTIONS=$SLURMD_OPTIONS
+      - SLURMCTLD_OPTIONS=$SLURMCTLD_OPTIONS
+  echo:
+    build: ./echo
+volumes:
+  shared-vol:
