@@ -369,7 +369,7 @@ export default class SqueueDataTable extends Component<
                 onClick={this.onReloadButtonClick.bind(this)}
               >
                 <BsArrowRepeat />
-                Refresh Queue
+                Refresh Queue 2
               </Button>
               <Button
                 className="jp-SlurmWidget-table-button"
