@@ -2,9 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - before: ./gitpod_before.sh
-  - init: ./gitpod_init.sh
-  - command: ./gitpod_command.sh
+  - command: ./install.sh
 
 ports:
   - port: 8888
