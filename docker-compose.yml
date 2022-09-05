@@ -17,7 +17,7 @@ services:
     hostname: slurmmaster
     user: "${UID}:${GID}"
     volumes:
-      - shared-vol:/home/gitpod
+      - shared-vol:/home/gitpod/shared
     ports:
       - 6817:6817
       - 6818:6818
@@ -30,7 +30,7 @@ services:
     hostname: slurmnode1
     user: "${UID}:${GID}"
     volumes:
-      - shared-vol:/home/gitpod
+      - shared-vol:/home/gitpod/shared
     links:
       - slurmmaster
     environment:
@@ -41,7 +41,7 @@ services:
     hostname: slurmnode2
     user: "${UID}:${GID}"
     volumes:
-      - shared-vol:/home/gitpod
+      - shared-vol:/home/gitpod/shared
     links:
       - slurmmaster
     environment:
@@ -52,7 +52,7 @@ services:
     hostname: slurmnode3
     user: "${UID}:${GID}"
     volumes:
-      - shared-vol:/home/gitpod
+      - shared-vol:/home/gitpod/shared
     links:
       - slurmmaster
     environment:
