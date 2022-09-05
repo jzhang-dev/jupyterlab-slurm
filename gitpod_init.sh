@@ -10,12 +10,5 @@ do
     cp -f $GITPOD_REPO_ROOT/munge.key $GITPOD_REPO_ROOT/$image/munge.key
 done
 
-
-GID=$(id -g)
-
-export UID GID
-envsubst < template.env > .env
-
 docker-compose build baseimage
 docker-compose build
-docker-compose up
