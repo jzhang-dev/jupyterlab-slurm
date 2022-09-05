@@ -8,8 +8,8 @@ services:
     hostname: slurmjupyter
     user: "${UID}:${GID}"
     volumes:
-      - shared-vol:/home/gitpod
-      - ./:/tmp/src
+      - shared-vol:/home/gitpod/shared
+      - ./:/home/gitpod/src
     ports:
       - 8888:8888
   slurmmaster:
