@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo rm -rf /home/gitpod
+sudo rm -rf /home/gitpod/src
 sudo cp -R /tmp/src /home/gitpod/
 sudo chown -R gitpod:gitpod /home/gitpod
 sudo chmod o+rwx /usr/share/
