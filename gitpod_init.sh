@@ -9,3 +9,6 @@ for image in ${images[@]}
 do
     cp -f $GITPOD_REPO_ROOT/munge.key $GITPOD_REPO_ROOT/$image/munge.key
 done
+
+docker-compose build baseimage
+docker-compose build
