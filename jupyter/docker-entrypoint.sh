@@ -13,6 +13,6 @@ cd /home/gitpod/src && jlpm run build
 
 sudo service munge start
 
-jupyter lab --no-browser --allow-root --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+# jupyter lab --no-browser --allow-root --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
 
 tail -f /dev/null
